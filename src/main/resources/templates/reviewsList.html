@@ -1,0 +1,23 @@
+﻿<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="layout">
+
+<body>
+
+    <span layout:fragment="pageTitle"> - Articles </span>
+
+    <div layout:fragment="content">
+    	<div th:include="menuFragmentAdmin" ></div>
+		<br/><Br/>
+		<table border="1" cellpadding="5">
+			<tr><th>Review Id</th><th>Article title</th><th>Article Author</th>
+			<th>Reviewer</th><th>Status</th><th>Score</th><th>Delete</th></tr>
+		
+		</table><br/>
+
+		<a href="">Add reviewers</a>
+		
+    </div>
+
+</body>
+</html>
