@@ -1,0 +1,31 @@
+﻿<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="layout">
+<body>
+
+
+
+    <span layout:fragment="pageTitle"> - Selected Reviewers </span>
+
+    <div layout:fragment="content">
+    	<div th:include="menuFragmentAdmin" ></div>
+		<br/><Br/>
+		<table border="1" cellpadding="5">
+			<tr><th>Reviewer Id</th><th>Name</th><th>Surname</th><th>Email</th><th>University</th><th>Subject</th><th></th></tr>
+			<tr>
+				<td>1</td>
+				<td>Jan</td>
+				<td>Nowak</td>
+				<td>jan.nowak@wp.pl</td>
+				<td>AGH</td>
+				<td>physics</td>
+				<td><a href="">add to email list</a></td>
+			</tr>
+		
+		
+		</table><br/><a href="">Send emails</a><br/><br/>
+		
+    </div>
+
+</body>
+</html>

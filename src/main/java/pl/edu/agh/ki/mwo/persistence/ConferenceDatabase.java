@@ -81,6 +81,12 @@ public class ConferenceDatabase{
 	public void addReviewer(Reviewer reviewer) {
 		reviewers.add(reviewer);
 	}
+
+	public Object getSelectedReviewers() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 	
 	/*
 	protected ArrayList<Student> students = null;

@@ -15,7 +15,7 @@ import pl.edu.agh.ki.mwo.persistence.ConferenceDatabase;
 public class ReviewersController {
 
     @RequestMapping(value="/Reviewers")
-    public String listStudents(Model model, HttpSession session) 
+    public String listReviewesr(Model model, HttpSession session) 
     {    	
     	if (session.getAttribute("userLogin") == null)
     		return "redirect:/Login";
@@ -25,52 +25,15 @@ public class ReviewersController {
         return "reviewersList"; 
     }
     
-    
-    /*
-    @RequestMapping(value="/AddStudent")
-    public String displayAddStudentForm(Model model, HttpSession session) 
+    @RequestMapping(value="/SelectedReviewers")
+    public String listSelectedReviewers(Model model, HttpSession session) 
     {    	
     	if (session.getAttribute("userLogin") == null)
     		return "redirect:/Login";
     	
-        return "studentForm";    
-    }
-    */
-
-    /*
-    @RequestMapping(value="/CreateStudent", method=RequestMethod.POST)
-    public String createStudent(@RequestParam(value="studentName", required=false) String name,
-    		@RequestParam(value="studentSurname", required=false) String surname,
-    		@RequestParam(value="studentSex", required=false) String sex,
-    		Model model, HttpSession session) 
-    {    	
-    	if (session.getAttribute("userLogin") == null)
-    		return "redirect:/Login";
+    	model.addAttribute("reviewers", ConferenceDatabase.getInstance().getSelectedReviewers());
     	
-    	StudentsDatabase.getInstance().addStudent(new Student(name, surname, sex.equals("female")));    	
-       	model.addAttribute("students", StudentsDatabase.getInstance().getStudents());
-    	model.addAttribute("message", "Nowy uczeń został dodany");
-         	
-    	return "studentsList";    
+        return "selectedReviewersList"; 
     }
-    */
-
-
-    /*
-    @RequestMapping(value="/RemoveStudent")
-    public String createStudent(@RequestParam(value="studentId") int studentId,
-    		Model model, HttpSession session) 
-    {    	
-    	if (session.getAttribute("userLogin") == null)
-    		return "redirect:/Login";
-    	
-    	StudentsDatabase.getInstance().removeStudent(studentId);
-       	model.addAttribute("students", StudentsDatabase.getInstance().getStudents());
-    	model.addAttribute("message", "Uczeń został skasowany");
-         	
-    	return "studentsList";    
-    }
-    */
-
 
 }
