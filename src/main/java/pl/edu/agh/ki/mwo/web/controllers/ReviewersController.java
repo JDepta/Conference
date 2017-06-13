@@ -15,7 +15,7 @@ import pl.edu.agh.ki.mwo.persistence.ConferenceDatabase;
 public class ReviewersController {
 
     @RequestMapping(value="/Reviewers")
-    public String listReviewesr(Model model, HttpSession session) 
+    public String listReviewers(Model model, HttpSession session) 
     {    	
     	if (session.getAttribute("userLogin") == null)
     		return "redirect:/Login";
