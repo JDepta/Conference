@@ -9,13 +9,8 @@ public abstract class User {
 	private String password;
 	private String university;
 	
-	public User(String name, String surname, String login, String password, String email, String university) {
-		this.name = name;
-		this.surname = surname;
-		this.login = login;
-		this.password = password;
-		this.email = email;
-		this.university = university;
+	public User() {
+
 	}
 	
 

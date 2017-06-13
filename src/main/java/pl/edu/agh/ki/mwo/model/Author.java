@@ -7,8 +7,8 @@ public class Author extends User {
 	
 	private List<Article> articles = new ArrayList<Article>();
 
-	public Author(String name, String surname, String login, String password, String email, String university) {
-		super(name, surname, login, password, email, university);
+	public Author() {
+		super();
 	}
 
 	public Article createArticle(String title){
