@@ -40,20 +40,20 @@ public class ConferenceDatabase{
 		System.out.println("Tu jeszcze dziala");
 		try{
 			DatabaseConnector dbConnector = new DatabaseConnector();
-//		articles=dbConnector.getArticles();
-//		tmp.close();
+			articles=dbConnector.getArticles();
+			dbConnector.close();
 		}catch (Exception e){
-		Article art1=new Article();
-		art1.setArticleId(1);
-		art1.setTitle("Jump to Space");
-		art1.setAuthorId(2);
-		art1.setScore(7);
-		art1.setStatus(1);
-		art1.setSubjectId(1);
-
-		addArticle(art1);
+//		Article art1=new Article();
+//		art1.setArticleId(1);
+//		art1.setTitle("Jump to Space");
+//		art1.setAuthorId(2);
+//		art1.setScore(7);
+//		art1.setStatus(1);
+//		art1.setSubjectId(1);
+//
+//		addArticle(art1);
 		
-		System.out.println("Tu nadal dziala");
+		System.out.println("Jestem w exception funkcji getArticles()");
 		}
 		return articles;
 	}

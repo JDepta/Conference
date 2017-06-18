@@ -32,10 +32,13 @@ public class DatabaseConnector {
 	}
 
 	public List<Article> getArticles() {
-//		Criteria crit = session.createCriteria(Article.class);
-//		List<Article> articles = crit.list();
-//		System.out.println(articles.get(0).getTitle());
-		List<Article> articles = null;
+		System.out.println("Tu jeszcze dziala 4");
+		@SuppressWarnings("deprecation")
+		Criteria crit = session.createCriteria(Article.class);
+		List<Article> articles = crit.list();
+		System.out.println(articles.get(0).getTitle());
+		System.out.println("Tu jeszcze dziala 5");
+		//List<Article> articles = null;
 		return articles;
 	}
 
