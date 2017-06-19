@@ -1,0 +1,33 @@
+﻿<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="layout">
+
+<body>
+
+    <span layout:fragment="pageTitle"> - Your articles </span>
+
+    <div layout:fragment="content">
+    	<div th:include="menuFragmentAuthor" ></div>
+		<br/><Br/>
+		<table border="1" cellpadding="5">
+			<tr><th>Article Id</th><th>Title</th><th>Author</th>
+			<th>Status</th><th>Score</th><th>Subject</th>
+			<th>Reviews</th><th>Accepted</th><th>Delete</th></tr>
+			<tr th:each="article: ${articles}">
+				<td><span th:text="${article.articleId}" /></td>
+				<td><span th:text="${article.title}" /></td>
+				<td><span th:text="${article.authorId}" /></td>
+				<td><span th:text="${article.status}" /></td>
+				<td><span th:text="${article.score}" /></td>
+				<td><span th:text="${article.subjectId}" /></td>
+				<td><a href="Reviews">Show reviews</a></td>
+				<td>No</td>
+				<td><a th:href="@{/RemoveArticle?ArticleId=}+${article.articleId}">X</a></td>
+			</tr>
+		
+		</table><br/>
+		
+    </div>
+
+</body>
+</html>

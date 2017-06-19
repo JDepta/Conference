@@ -26,6 +26,7 @@ public class DatabaseConnector {
 		System.out.println("Tu jeszcze dziala 3");
 	}
 
+
 	public void close() {
 		session.close();
 		HibernateUtil.shutdown();
@@ -38,7 +39,6 @@ public class DatabaseConnector {
 		List<Article> articles = crit.list();
 		System.out.println(articles.get(0).getTitle());
 		System.out.println("Tu jeszcze dziala 5");
-		//List<Article> articles = null;
 		return articles;
 	}
 

@@ -21,11 +21,25 @@ public class ConferenceLoginController {
     		@RequestParam(value="password") String password,
     		Model model,
     		HttpSession session) {
+    	
         if (login.equals("Admin"))
         {
         	session.setAttribute("userLogin", login);
         	return "redirect:/Welcome";
         }
+        
+        else if (login.equals("Author"))
+        {
+        	session.setAttribute("userLogin", login);
+        	return "redirect:/WelcomeAuthor";
+        }
+        
+        else if (login.equals("Reviewer"))
+        {
+        	session.setAttribute("userLogin", login);
+        	return "redirect:/WelcomeReviewer";
+        }
+        
         else
         {
         	session.removeAttribute("userLogin");
@@ -42,6 +56,16 @@ public class ConferenceLoginController {
     @RequestMapping(value="/Welcome")
     public String welcome(Model model, HttpSession session) {
         return "welcomeConference";
+    }
+    
+    @RequestMapping(value="/WelcomeAuthor")
+    public String welcomeAuthor(Model model, HttpSession session) {
+        return "welcomeConferenceAuthorView";
+    }
+    
+    @RequestMapping(value="/WelcomeReviewer")
+    public String welcomeReviewer(Model model, HttpSession session) {
+        return "welcomeConferenceReviewerView";
     }
 
 }

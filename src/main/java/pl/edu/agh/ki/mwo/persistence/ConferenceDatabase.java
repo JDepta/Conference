@@ -39,8 +39,11 @@ public class ConferenceDatabase{
 	public Iterable<Article> getArticles() {
 		System.out.println("Tu jeszcze dziala");
 		try{
+			System.out.println("k1");
 			DatabaseConnector dbConnector = new DatabaseConnector();
+			System.out.println("k2");
 			articles=dbConnector.getArticles();
+			System.out.println("k3");
 			dbConnector.close();
 		}catch (Exception e){
 //		Article art1=new Article();
