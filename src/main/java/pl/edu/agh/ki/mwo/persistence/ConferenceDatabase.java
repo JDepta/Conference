@@ -3,10 +3,17 @@ package pl.edu.agh.ki.mwo.persistence;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.hibernate.Criteria;
+import org.hibernate.Query;
+import org.hibernate.Session;
+import org.hibernate.Transaction;
+
 import pl.edu.agh.ki.mwo.model.Article;
 import pl.edu.agh.ki.mwo.model.Author;
 import pl.edu.agh.ki.mwo.model.Review;
 import pl.edu.agh.ki.mwo.model.Reviewer;
+
+
 
 public class ConferenceDatabase{
 	
@@ -39,12 +46,23 @@ public class ConferenceDatabase{
 	public Iterable<Article> getArticles() {
 		System.out.println("Tu jeszcze dziala");
 		try{
+			Session session;
+			session = HibernateUtil.getSessionFactory().openSession();
 			System.out.println("k1");
-			DatabaseConnector dbConnector = new DatabaseConnector();
+			@SuppressWarnings("deprecation")
+			Criteria crit = session.createCriteria(Article.class);
+			List<Article> articles = crit.list();
+			System.out.println(articles.get(0).getTitle());
 			System.out.println("k2");
-			articles=dbConnector.getArticles();
-			System.out.println("k3");
-			dbConnector.close();
+			session.close();
+			return articles;
+			
+//			System.out.println("k1");
+//			DatabaseConnector dbConnector = new DatabaseConnector();
+//			System.out.println("k2");
+//			articles=dbConnector.getArticles();
+//			System.out.println("k3");
+//			dbConnector.close();
 		}catch (Exception e){
 //		Article art1=new Article();
 //		art1.setArticleId(1);
@@ -57,12 +75,33 @@ public class ConferenceDatabase{
 //		addArticle(art1);
 		
 		System.out.println("Jestem w exception funkcji getArticles()");
-		}
+		articles=null;
 		return articles;
+		}
+
 	}
 	
 	public Iterable<Author> getAuthors() {
+		try{
+			Session session;
+			session = HibernateUtil.getSessionFactory().openSession();
+			System.out.println("k3");
+			
+			@SuppressWarnings("deprecation")
+			Criteria crit = session.createCriteria(Author.class);
+			List<Author> authors = crit.list();
+			System.out.println(authors.get(0).getName());
+			System.out.println("k4");
+			session.close();
+			return authors;
+			
+
+		}catch (Exception e){
+		
+		System.out.println("Jestem w exception funkcji getAuthors()");
+		authors=null;
 		return authors;
+		}
 	}
 	
 	public Iterable<Reviewer> getReviewers() {
