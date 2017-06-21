@@ -49,6 +49,7 @@ public class ConferenceDatabase{
 			Session session;
 			session = HibernateUtil.getSessionFactory().openSession();
 			System.out.println("k1");
+			
 			@SuppressWarnings("deprecation")
 			Criteria crit = session.createCriteria(Article.class);
 			List<Article> articles = crit.list();
@@ -57,23 +58,8 @@ public class ConferenceDatabase{
 			session.close();
 			return articles;
 			
-//			System.out.println("k1");
-//			DatabaseConnector dbConnector = new DatabaseConnector();
-//			System.out.println("k2");
-//			articles=dbConnector.getArticles();
-//			System.out.println("k3");
-//			dbConnector.close();
 		}catch (Exception e){
-//		Article art1=new Article();
-//		art1.setArticleId(1);
-//		art1.setTitle("Jump to Space");
-//		art1.setAuthorId(2);
-//		art1.setScore(7);
-//		art1.setStatus(1);
-//		art1.setSubjectId(1);
-//
-//		addArticle(art1);
-		
+
 		System.out.println("Jestem w exception funkcji getArticles()");
 		articles=null;
 		return articles;

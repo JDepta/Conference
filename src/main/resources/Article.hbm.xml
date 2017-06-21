@@ -9,8 +9,8 @@
 		
 		<property name="authorId" column="authorId" type="int"></property>
 		<property name="title" column="title" type="string"></property>
-		<property name="status" column="status" type="int"></property>
-		<property name="score" column="score" type="int"></property>
+		<property name="status" column="status" type="boolean"></property>
+		<property name="score" column="score" type="double"></property>
 		<property name="subjectId" column="subjectId" type="int"></property>
 
 	</class>

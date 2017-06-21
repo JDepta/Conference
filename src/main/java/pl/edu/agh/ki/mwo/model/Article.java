@@ -7,8 +7,8 @@ public class Article {
 	private long articleId;
 	private String title;
 	private long authorId;
-	private int status;
-	private int score;
+	private boolean status;
+	private double score;
 	private long subjectId;
 	
 	private List<Review> reviews=new ArrayList<Review>();
@@ -47,19 +47,19 @@ public class Article {
 		this.authorId = authorId;
 	}
 
-	public int getStatus() {
+	public boolean getStatus() {
 		return status;
 	}
 
-	public void setStatus(int status) {
+	public void setStatus(boolean status) {
 		this.status = status;
 	}
 
-	public int getScore() {
+	public double getScore() {
 		return score;
 	}
 
-	public void setScore(int score) {
+	public void setScore(double score) {
 		this.score = score;
 	}
 
@@ -87,7 +87,7 @@ public class Article {
 	
 	
 	public void updateStatus(){
-		status=0;
+		status=false;
 		
 		if(reviews.isEmpty()){
 			
@@ -99,7 +99,7 @@ public class Article {
 				};
 			}
 			if(tmp/reviews.size() >= 0.5){
-				status=1;
+				status=true;
 			}
 		}
 	}

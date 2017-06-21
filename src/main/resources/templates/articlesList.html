@@ -17,7 +17,7 @@
 				<td><span th:text="${article.articleId}" /></td>
 				<td><span th:text="${article.title}" /></td>
 				<td><span th:text="${article.authorId}" /></td>
-				<td><span th:text="${article.status}" /></td>
+				<td><span th:text="${article.status}? 'Positive': 'Negative'" /></td>
 				<td><span th:text="${article.score}" /></td>
 				<td><span th:text="${article.subjectId}" /></td>
 				<td><a href="Reviews">Show reviews</a></td>

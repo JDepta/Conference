@@ -3,17 +3,12 @@ package pl.edu.agh.ki.mwo.model;
 public class Review {
 	private long id;
 	private long idReviewer;
-	private String description;
+	private String reviewText;
 	private int status;
 	private int score;
 	
 	
-	public Review(long id, long idReviewer, String description, int status, int score) {
-		this.id = id;
-		this.idReviewer = idReviewer;
-		this.description = description;
-		this.status = status;
-		this.score = score;
+	public Review() {
 	}
 
 
@@ -33,12 +28,12 @@ public class Review {
 		this.idReviewer = idReviewer;
 	}
 
-	public String getDescription() {
-		return description;
+	public String getReviewText() {
+		return reviewText;
 	}
 
-	public void setDescription(String description) {
-		this.description = description;
+	public void setDescription(String reviewText) {
+		this.reviewText = reviewText;
 	}
 
 	public int getStatus() {
