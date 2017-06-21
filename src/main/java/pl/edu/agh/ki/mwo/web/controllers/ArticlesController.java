@@ -25,7 +25,17 @@ public class ArticlesController {
         return "articlesList";    
     }
     
-    
+    @RequestMapping(value="/ArticlesAuthor")
+    public String listArticlesAuthorView(@RequestParam(value="authorId") int authorId,
+    		Model model, HttpSession session) 
+    {    	
+    	if (session.getAttribute("userLogin") == null)
+    		return "redirect:/Login";
+    	
+    	model.addAttribute("articles", ConferenceDatabase.getInstance().getArticlesAuthorView(authorId));
+    	
+        return "articlesListAuthorView";
+    }
     /*
     @RequestMapping(value="/AddStudent")
     public String displayAddStudentForm(Model model, HttpSession session) 

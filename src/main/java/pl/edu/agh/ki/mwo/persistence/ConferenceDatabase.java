@@ -67,6 +67,36 @@ public class ConferenceDatabase{
 
 	}
 	
+	public Iterable<Article> getArticlesAuthorView(int authorId) {
+		try{
+			Session session;
+			session = HibernateUtil.getSessionFactory().openSession();
+			
+			System.out.println("k1");
+			
+			String hql = "FROM Article A WHERE A.authorId="+authorId;
+			
+			System.out.println("k2");
+			@SuppressWarnings("deprecation")
+			Query query = session.createQuery(hql);
+			
+			System.out.println("k3");
+			List articles = query.list();
+			
+			System.out.println("k4");
+			session.close();
+			return articles;
+			
+		}catch (Exception e){
+
+		System.out.println("Jestem w exception funkcji getArticlesAuthorView()");
+		articles=null;
+		return articles;
+		}
+	}
+	
+	
+	
 	public Iterable<Author> getAuthors() {
 		try{
 			Session session;
@@ -111,6 +141,12 @@ public class ConferenceDatabase{
 	}
 
 	public Object getSelectedReviewers() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	public Object getArticles(int authorId) {
 		// TODO Auto-generated method stub
 		return null;
 	}

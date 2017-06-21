@@ -7,11 +7,15 @@
 			<generator class="native"></generator>
 		</id>
 
+		<set name="articles" cascade="all">
+			<key column="authorId" />
+			<one-to-many class="pl.edu.agh.ki.mwo.model.Article" />
+		</set>
+		
 		<property name="name" column="name" type="string"></property>
 		<property name="surname" column="surname" type="string"></property>
 		<property name="email" column="email" type="string"></property>
 		<property name="university" column="university" type="string"></property>
 		
-
 	</class>
 </hibernate-mapping>

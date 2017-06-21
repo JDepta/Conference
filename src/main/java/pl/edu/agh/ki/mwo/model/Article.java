@@ -13,11 +13,6 @@ public class Article {
 	
 	private List<Review> reviews=new ArrayList<Review>();
 		
-//	public Article(long authorId, String title) {
-//		this.authorId = authorId;
-//		this.title = title;
-//	}
-	
 
 	public Article(){
 	}
