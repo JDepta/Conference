@@ -4,7 +4,7 @@
 
 <hibernate-configuration>
 	<session-factory>
-		<property name="show_sql">false</property>
+		<property name="hibernate.id.new_generator_mappings">false</property>
 		<property name="format_sql">true</property>
 		<property name="dialect">pl.edu.agh.ki.mwo.persistence.SQLiteDialect</property>
 		<property name="connection.driver_class">org.sqlite.JDBC</property>
@@ -12,9 +12,10 @@
 		<property name="connection.username"></property>
 		<property name="connection.password"></property>
 	
-	
+		<mapping resource="Subject.hbm.xml"/>
 		<mapping resource="Article.hbm.xml"/>
   		<mapping resource="Author.hbm.xml"/>
+  		<mapping resource="Review.hbm.xml"/>
   		
 	
 	</session-factory>

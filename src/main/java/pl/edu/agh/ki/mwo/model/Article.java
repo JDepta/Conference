@@ -3,8 +3,11 @@ package pl.edu.agh.ki.mwo.model;
 import java.util.ArrayList;
 import java.util.List;
 
+
 public class Article {
-	private long articleId;
+
+	private long id;
+	
 	private String title;
 	private long authorId;
 	private boolean status;
@@ -17,13 +20,12 @@ public class Article {
 	public Article(){
 	}
 	
-
-	public long getArticleId() {
-		return articleId;
+	public long getId() {
+		return id;
 	}
 
-	public void setArticleId(long articleId) {
-		this.articleId = articleId;
+	public void setId(long id) {
+		this.id = id;
 	}
 
 	public String getTitle() {
@@ -81,23 +83,23 @@ public class Article {
 	} 
 	
 	
-	public void updateStatus(){
-		status=false;
-		
-		if(reviews.isEmpty()){
-			
-		}else{
-			double tmp=0;
-			for(Review review: reviews){
-				if(review.getStatus()==1){
-					tmp+=1;
-				};
-			}
-			if(tmp/reviews.size() >= 0.5){
-				status=true;
-			}
-		}
-	}
+//	public void updateStatus(){
+//		status=false;
+//		
+//		if(reviews.isEmpty()){
+//			
+//		}else{
+//			double tmp=0;
+//			for(Review review: reviews){
+//				if(review.getStatus()==1){
+//					tmp+=1;
+//				};
+//			}
+//			if(tmp/reviews.size() >= 0.5){
+//				status=true;
+//			}
+//		}
+//	}
 	
 	public void updateScore(){
 		

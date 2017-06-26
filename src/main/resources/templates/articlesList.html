@@ -14,16 +14,16 @@
 			<th>Status</th><th>Score</th><th>Subject</th>
 			<th>Reviews</th><th>Accepted</th><th>Edit</th><th>Delete</th></tr>
 			<tr th:each="article: ${articles}">
-				<td><span th:text="${article.articleId}" /></td>
+				<td><span th:text="${article.id}" /></td>
 				<td><span th:text="${article.title}" /></td>
 				<td><span th:text="${article.authorId}" /></td>
 				<td><span th:text="${article.status}? 'Positive': 'Negative'" /></td>
 				<td><span th:text="${article.score}" /></td>
 				<td><span th:text="${article.subjectId}" /></td>
-				<td><a href="Reviews">Show reviews</a></td>
+				<td><a th:href="@{/Reviews?articleId=}+${article.id}">Show reviews</a></td>
 				<td>No</td>
 				<td><a href="">Change acceptance</a></td>
-				<td><a th:href="@{/RemoveArticle?ArticleId=}+${article.articleId}">X</a></td>
+				<td><a th:href="@{/RemoveArticle?articleId=}+${article.id}">X</a></td>
 			</tr>
 		
 		</table><br/>

@@ -35,25 +35,18 @@
             <artifactId>plexus-utils</artifactId>
             <version>1.1</version>
         </dependency>
-      
+  
 		<dependency>
 		   <groupId>org.hibernate</groupId>
 		   <artifactId>hibernate-core</artifactId>
 		   <version>5.2.10.Final</version>
-		</dependency>
-		 
-		
-		<dependency>
-    		<groupId>net.kemitix</groupId>
-    		<artifactId>sqlite-dialect</artifactId>
-   	 		<version>0.1.0</version>
-		</dependency>
+		</dependency>	
 
-<!-- 		<dependency> -->
-<!--     		<groupId>org.hibernate.dialect</groupId> -->
-<!--     		<artifactId>sqlite-dialect</artifactId> -->
-<!--     		<version>0.1.0</version> -->
-<!-- 		</dependency> -->
+		<dependency>
+		    <groupId>org.hibernate</groupId>
+		    <artifactId>hibernate-annotations</artifactId>
+		    <version>3.5.6-Final</version>
+		</dependency>
 
 
 		<dependency>

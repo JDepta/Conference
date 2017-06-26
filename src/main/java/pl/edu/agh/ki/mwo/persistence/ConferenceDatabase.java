@@ -12,6 +12,7 @@ import pl.edu.agh.ki.mwo.model.Article;
 import pl.edu.agh.ki.mwo.model.Author;
 import pl.edu.agh.ki.mwo.model.Review;
 import pl.edu.agh.ki.mwo.model.Reviewer;
+import pl.edu.agh.ki.mwo.model.Subject;
 
 
 
@@ -33,6 +34,7 @@ public class ConferenceDatabase{
 	protected ArrayList<Author> authors = null;
 	protected ArrayList<Reviewer> reviewers = null;
 	protected ArrayList<Review> reviews = null;
+	protected List<Subject> subjects = null;
 	
 	protected ConferenceDatabase()
 	{
@@ -40,6 +42,7 @@ public class ConferenceDatabase{
 		authors = new ArrayList<Author>();
 		reviewers = new ArrayList<Reviewer>();
 		reviews = new ArrayList<Review>();
+		subjects = new ArrayList<Subject>();
 	}
 	
 	
@@ -67,7 +70,7 @@ public class ConferenceDatabase{
 
 	}
 	
-	public Iterable<Article> getArticlesAuthorView(int authorId) {
+	public Iterable<Article> getArticlesAuthorView(long authorId) {
 		try{
 			Session session;
 			session = HibernateUtil.getSessionFactory().openSession();
@@ -81,6 +84,7 @@ public class ConferenceDatabase{
 			Query query = session.createQuery(hql);
 			
 			System.out.println("k3");
+			@SuppressWarnings("deprecation")
 			List articles = query.list();
 			
 			System.out.println("k4");
@@ -95,8 +99,7 @@ public class ConferenceDatabase{
 		}
 	}
 	
-	
-	
+		
 	public Iterable<Author> getAuthors() {
 		try{
 			Session session;
@@ -124,12 +127,79 @@ public class ConferenceDatabase{
 		return reviewers;
 	}
 	
-	public Iterable<Review> getReviews() {
-		return reviews;
+	public Iterable<Review> getReviews(long articleId) {
+		try{
+			System.out.println("Jestem w try funkcji getReviews");
+			Session session;
+			session = HibernateUtil.getSessionFactory().openSession();
+			
+			//System.out.println("k1");
+			
+			String hql = "FROM Review R WHERE R.articleId="+articleId;
+			
+			System.out.println("k2");
+			@SuppressWarnings("deprecation")
+			Query query = session.createQuery(hql);
+			
+			System.out.println("k3");
+			@SuppressWarnings("deprecation")
+			List reviews = query.list();
+			
+			System.out.println("k4");
+			session.close();
+			
+			return reviews;
+		}catch (Exception e){
+			
+			System.out.println("Jestem w exception funkcji getReviews()");
+			reviews=null;
+			return reviews;
+			}
 	}
 	
-	public void addArticle(Article article) {
-		articles.add(article);		
+	
+	public void addArticle(String title, String subject) {
+		Transaction transaction = null;
+		Session session;
+		session = HibernateUtil.getSessionFactory().openSession();
+
+		try{
+			System.out.println("jestem w try funkcji AddArticle()");
+			//Czy parametry zostaly przekazane
+			System.out.println(title);
+			System.out.println(subject);
+
+			System.out.println("k7");
+			
+			//Proba dodania artykulu do bazy
+	    	long authorId=1; //tu powinno sczytac id autora, który się zalogowal (domyslnie zakladam, ze 1)
+	    	Article newArticle=new Article();
+	    	newArticle.setTitle(title);
+	    	newArticle.setAuthorId(authorId);
+	    	newArticle.setStatus(false);
+	    	newArticle.setScore(0);
+	    	newArticle.setSubjectId(2);
+	    	
+	    	transaction = session.beginTransaction();
+
+
+	    	System.out.println("k8");
+	    	
+	    	System.out.println(session.isConnected());
+	    	System.out.println(session.isOpen());
+			session.save(newArticle);
+			System.out.println("k9");
+			transaction.commit();
+			
+		}catch (Exception e){
+			if (transaction!=null) transaction.rollback();
+
+		System.out.println("Jestem w exception funkcji addArticle()");
+		System.out.println("Nie udalo sie dodac artykulu");
+		e.printStackTrace();
+
+		}
+		session.close();
 	}
 	
 	public void addAuthor(Author author) {

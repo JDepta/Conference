@@ -1,0 +1,21 @@
+﻿<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="layout">
+<body>
+
+    <div layout:fragment="content">
+    <div th:include="menuFragmentAuthor" ></div>
+    	<br/><br/>
+	   	<form action="CreateArticle" method="POST">
+			<table>
+				<tr><td>Title:</td><td><input type="text" name="articleTitle" th:value="${article} ? ${article.title}" /></td></tr>
+				<tr><td>Subject:</td><td><input type="text" name="articleSubject" th:value="${article} ? ${article.subject}" /></td></tr>
+			</table><br/><BR/>
+			<input type="submit" value="Add article"/>
+		</form>
+    </div>
+
+</body>
+</html>
+
+

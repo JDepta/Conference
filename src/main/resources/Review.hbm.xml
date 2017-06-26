@@ -2,17 +2,16 @@
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
-	<class name="pl.edu.agh.ki.mwo.model.Article" table="articles">
+	<class name="pl.edu.agh.ki.mwo.model.Review" table="reviews">
 		<id name="id" column="id" type="long">
 			<generator class="native"></generator>
 		</id>
- 
-		<property name="authorId" column="authorId" type="long"></property>
-		<property name="title" column="title" type="string"></property>
+		
+		<property name="articleId" column="articleId" type="long"></property>
+		<property name="reviewText" column="reviewText" type="string"></property>
 		<property name="status" column="status" type="boolean"></property>
 		<property name="score" column="score" type="double"></property>
-		<property name="subjectId" column="subjectId" type="long"></property>
+		<property name="reviewerId" column="reviewerId" type="long"></property>
 		
-
 	</class>
 </hibernate-mapping>

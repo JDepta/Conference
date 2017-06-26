@@ -2,10 +2,11 @@ package pl.edu.agh.ki.mwo.model;
 
 public class Review {
 	private long id;
-	private long idReviewer;
+	private long articleId;
 	private String reviewText;
-	private int status;
-	private int score;
+	private boolean status;
+	private double score;
+	private long reviewerId;
 	
 	
 	public Review() {
@@ -20,13 +21,28 @@ public class Review {
 		this.id = id;
 	}
 
-	public long getIdReviewer() {
-		return idReviewer;
+	public long getReviewerId() {
+		return reviewerId;
 	}
 
-	public void setIdReviewer(long idReviewer) {
-		this.idReviewer = idReviewer;
+	public void setReviewerId(long idReviewer) {
+		this.reviewerId = idReviewer;
 	}
+
+	public long getArticleId() {
+		return articleId;
+	}
+
+
+	public void setArticleId(long articleId) {
+		this.articleId = articleId;
+	}
+
+
+	public void setReviewText(String reviewText) {
+		this.reviewText = reviewText;
+	}
+
 
 	public String getReviewText() {
 		return reviewText;
@@ -36,19 +52,19 @@ public class Review {
 		this.reviewText = reviewText;
 	}
 
-	public int getStatus() {
+	public boolean getStatus() {
 		return status;
 	}
 
-	public void setStatus(int status) {
+	public void setStatus(boolean status) {
 		this.status = status;
 	}
 
-	public int getScore() {
+	public double getScore() {
 		return score;
 	}
 
-	public void setScore(int score) {
+	public void setScore(double score) {
 		this.score = score;
 	}
 	

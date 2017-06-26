@@ -15,12 +15,14 @@ import pl.edu.agh.ki.mwo.persistence.ConferenceDatabase;
 public class ReviewsController {
 
     @RequestMapping(value="/Reviews")
-    public String listArticles(Model model, HttpSession session) 
+    public String listArticles(
+    		@RequestParam(value="articleId") int articleId, 
+    		Model model, HttpSession session) 
     {    	
     	if (session.getAttribute("userLogin") == null)
     		return "redirect:/Login";
     	
-    	model.addAttribute("reviews", ConferenceDatabase.getInstance().getReviews());
+    	model.addAttribute("reviews", ConferenceDatabase.getInstance().getReviews(articleId));
     	
         return "reviewsList";    
     }

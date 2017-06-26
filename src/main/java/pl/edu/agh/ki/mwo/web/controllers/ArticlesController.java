@@ -36,34 +36,36 @@ public class ArticlesController {
     	
         return "articlesListAuthorView";
     }
-    /*
-    @RequestMapping(value="/AddStudent")
+    
+  
+    @RequestMapping(value="/AddArticle")
     public String displayAddStudentForm(Model model, HttpSession session) 
     {    	
     	if (session.getAttribute("userLogin") == null)
     		return "redirect:/Login";
     	
-        return "studentForm";    
+        return "articleForm";    
     }
-    */
+    
 
-    /*
-    @RequestMapping(value="/CreateStudent", method=RequestMethod.POST)
-    public String createStudent(@RequestParam(value="studentName", required=false) String name,
-    		@RequestParam(value="studentSurname", required=false) String surname,
-    		@RequestParam(value="studentSex", required=false) String sex,
+    
+    @RequestMapping(value="/CreateArticle", method=RequestMethod.POST)
+    public String addArticle(
+    		@RequestParam(value="articleTitle") String title,
+    		@RequestParam(value="articleSubject") String subject,
     		Model model, HttpSession session) 
     {    	
     	if (session.getAttribute("userLogin") == null)
     		return "redirect:/Login";
     	
-    	StudentsDatabase.getInstance().addStudent(new Student(name, surname, sex.equals("female")));    	
-       	model.addAttribute("students", StudentsDatabase.getInstance().getStudents());
-    	model.addAttribute("message", "Nowy uczeń został dodany");
+    	long authorId=1; //tu powinno sczytac id autora, który się zalogowal (domyslnie zakladam, ze 1)
+    	ConferenceDatabase.getInstance().addArticle(title, subject);    	
+    	model.addAttribute("articles", ConferenceDatabase.getInstance().getArticlesAuthorView(authorId));
+    	model.addAttribute("message", "Nowy artykuł został dodany");
          	
-    	return "studentsList";    
+    	return "articlesListAuthorView";    
     }
-    */
+    
 
 
     /*
