@@ -15,6 +15,7 @@
 		<mapping resource="Subject.hbm.xml"/>
 		<mapping resource="Article.hbm.xml"/>
   		<mapping resource="Author.hbm.xml"/>
+  		<mapping resource="Reviewer.hbm.xml"/>
   		<mapping resource="Review.hbm.xml"/>
   		
 	

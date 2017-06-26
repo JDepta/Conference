@@ -123,7 +123,26 @@ public class ConferenceDatabase{
 	}
 	
 	public Iterable<Reviewer> getReviewers() {
+		try{
+			Session session;
+			session = HibernateUtil.getSessionFactory().openSession();
+			System.out.println("k3");
+			
+			@SuppressWarnings("deprecation")
+			Criteria crit = session.createCriteria(Reviewer.class);
+			List<Reviewer> reviewers = crit.list();
+			System.out.println("k4");
+			session.close();
+			return reviewers;
+			
+
+		}catch (Exception e){
+		
+		System.out.println("Jestem w exception funkcji getReviewers()");
+		reviewers=null;
 		return reviewers;
+		}
+
 	}
 	
 	public Iterable<Review> getReviews(long articleId) {
