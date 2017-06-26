@@ -13,7 +13,6 @@ public abstract class User {
 
 	}
 	
-
 	public long getAuthorId() {
 		return authorId;
 	}

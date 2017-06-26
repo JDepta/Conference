@@ -65,24 +65,6 @@ public class ArticlesController {
          	
     	return "articlesListAuthorView";    
     }
-    
-
-
-    /*
-    @RequestMapping(value="/RemoveStudent")
-    public String createStudent(@RequestParam(value="studentId") int studentId,
-    		Model model, HttpSession session) 
-    {    	
-    	if (session.getAttribute("userLogin") == null)
-    		return "redirect:/Login";
-    	
-    	StudentsDatabase.getInstance().removeStudent(studentId);
-       	model.addAttribute("students", StudentsDatabase.getInstance().getStudents());
-    	model.addAttribute("message", "Uczeń został skasowany");
-         	
-    	return "studentsList";    
-    }
-    */
 
 
 }

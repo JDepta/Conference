@@ -101,18 +101,18 @@ public class Article {
 //		}
 //	}
 	
-	public void updateScore(){
-		
-		score=0;
-		
-		if(reviews.isEmpty()){
-
-		}else{
-			for(Review review: reviews){
-				score+=review.getScore();
-			}
-			score=score/reviews.size();
-		}
-	}
+//	public void updateScore(){
+//		
+//		score=0;
+//		
+//		if(reviews.isEmpty()){
+//
+//		}else{
+//			for(Review review: reviews){
+//				score+=review.getScore();
+//			}
+//			score=score/reviews.size();
+//		}
+//	}
 	
 }

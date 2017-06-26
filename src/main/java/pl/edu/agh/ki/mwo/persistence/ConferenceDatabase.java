@@ -15,7 +15,6 @@ import pl.edu.agh.ki.mwo.model.Reviewer;
 import pl.edu.agh.ki.mwo.model.Subject;
 
 
-
 public class ConferenceDatabase{
 	
 	protected static ConferenceDatabase conferenceDatabase = null;
@@ -211,42 +210,7 @@ public class ConferenceDatabase{
 	}
 
 	public Object getSelectedReviewers() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-
-	public Object getArticles(int authorId) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	
-	/*
-	protected ArrayList<Student> students = null;
-	
-	protected ConferenceDatabase()
-	{
-		students = new ArrayList<Student>();
-	}
-
-	public Iterable<Student> getStudents() {
-		return students;
-	}
-
-	public void addStudent(Student student) {
-		students.add(student);		
+			return null;
 	}
 	
-	public void removeStudent(int studentId) {
-		for(Student student : students)
-		{
-			if (student.getId() == studentId)
-			{
-				students.remove(student);
-				return;
-			}
-		}
-	}
-	*/
 }

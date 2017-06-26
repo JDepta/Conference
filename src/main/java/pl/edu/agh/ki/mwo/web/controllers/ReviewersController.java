@@ -33,7 +33,7 @@ public class ReviewersController {
     	
     	model.addAttribute("reviewers", ConferenceDatabase.getInstance().getSelectedReviewers());
     	
-        return "selectedReviewersList"; 
+        return "selectedReviewersList";
     }
 
 }
